@@ -1,0 +1,63 @@
+<!-- templates/add_task.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Add New Task{% endblock %}
+
+{% block content %}
+<div class="card bg-dark">
+  <div class="card-header bg-primary text-white">
+    <h3>
+      <i class="bi bi-plus-circle me-1"></i> Add New Task
+    </h3>
+  </div>
+  <div class="card-body">
+    <!-- Now we do a normal POST to /add -->
+    <form method="POST" action="{{ url_for('add_task') }}" id="addTaskForm">
+      <div class="mb-3">
+        <label for="description" class="form-label">Task Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          name="description"
+          placeholder="Enter task description"
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="due_date" class="form-label">Due Date (YYYY-MM-DD)</label>
+        <input
+          type="date"
+          class="form-control"
+          id="due_date"
+          name="due_date"
+        >
+      </div>
+
+      <div class="mb-3">
+        <label for="priority" class="form-label">Priority</label>
+        <select class="form-select" id="priority" name="priority">
+          <option value="">Select Priority</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+      </div>
+
+      <!-- We won't show AJAX-based error/success divs anymore 
+           because we do a full page reload. 
+           If you want them for real-time validation, you can keep them. -->
+      <!-- Real-time validation still works in scripts.js if you want it. -->
+
+      <button type="submit" class="btn btn-success">
+        <i class="bi bi-check-circle me-1"></i> Save Task
+      </button>
+      <a href="{{ url_for('index') }}" class="btn btn-secondary ms-2">
+        <i class="bi bi-arrow-left"></i> Cancel
+      </a>
+    </form>
+  </div>
+</div>
+{% endblock %}

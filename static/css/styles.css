@@ -1,0 +1,99 @@
+/* static/css/styles.css */
+
+/* Dark background usage */
+body {
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+  }
+  
+  /* Navbar & Card */
+  .navbar-brand {
+    font-weight: bold;
+  }
+  .card {
+    background-color: #2C2C2C;
+    border: none;
+  }
+  
+  /* Form Labels */
+  .form-label {
+    color: #FFFFFF;
+  }
+  
+  /* Table Dark + Hover */
+  .table-dark thead th {
+    background-color: #343A40;
+    color: #FFFFFF;
+  }
+  .table-dark tbody tr {
+    background-color: #2C2C2C;
+  }
+  .table-dark tbody tr:nth-child(even) {
+    background-color: #3A3A3A;
+  }
+  .table-dark.table-hover tbody tr:hover {
+    background-color: #414141;
+    cursor: pointer;
+  }
+  
+  /* Buttons */
+  .btn-primary {
+    background-color: #0D6EFD;
+    border-color: #0D6EFD;
+  }
+  .btn-primary:hover {
+    background-color: #0B5ED7;
+    border-color: #0A58CA;
+  }
+  .btn-success {
+    background-color: #198754;
+    border-color: #198754;
+  }
+  .btn-success:hover {
+    background-color: #157347;
+    border-color: #146C43;
+  }
+  .btn-danger {
+    background-color: #DC3545;
+    border-color: #DC3545;
+  }
+  .btn-danger:hover {
+    background-color: #BB2D3B;
+    border-color: #B02A37;
+  }
+  .btn-secondary {
+    background-color: #6C757D;
+    border-color: #6C757D;
+  }
+  .btn-secondary:hover {
+    background-color: #5A6268;
+    border-color: #545B62;
+  }
+  
+  /* Slight scale effect for hovered .btn */
+  .btn {
+    transition: transform 0.2s ease-in-out;
+  }
+  .btn:hover {
+    transform: scale(1.02);
+  }
+  
+  /* Alerts */
+  .alert {
+    border-radius: 0.5rem;
+  }
+  .alert-dismissible .btn-close {
+    background-color: #FFFFFF;
+    border-radius: 50%;
+  }
+  
+  /* Real-time Validation: .is-invalid */
+  .is-invalid {
+    border: 1px solid #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  }
+  
+  /* Fade transitions for .fade + .show elements */
+  .fade {
+    transition: opacity 0.15s linear;
+  }
