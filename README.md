@@ -1,19 +1,28 @@
-# Vuluru To-Do List Application
+# Vuluru To-Do
 
-A web-based To-Do List application built with Flask and MongoDB, designed for macOS with Apple M4 Silicon.
+A modern Flask application featuring:
+- A tabbed navigation bar (Home, Tasks, Contacts).
+- Tasks that can be assigned to a contact.
+- "Created At" stored in DB but **not** displayed in the UI.
 
-## Features
+## Project Structure
 
-- **Add Tasks**: Create new tasks with descriptions, due dates, and priority levels.
-- **View Tasks**: Display all tasks with options to filter by status and sort by various attributes.
-- **Remove Tasks**: Delete tasks that are no longer needed.
-- **Mark as Completed**: Update the status of tasks to indicate completion.
-- **Responsive UI**: Built with Bootstrap for a modern and responsive user interface.
-
-## Setup Instructions
-
-1. **Clone the Repository**
-
-   ```bash
-   git clone https://github.com/yourusername/vuluru-todo.git
-   cd vuluru-todo
+VULURU-TODO/
+├── .venv/
+├── static/
+│   ├── css/
+│   │   └── styles.css
+│   └── js/
+│       └── scripts.js
+├── templates/
+│   ├── add_contact.html
+│   ├── add_task.html
+│   ├── base.html
+│   ├── contacts.html
+│   ├── edit_contact.html
+│   ├── edit_task.html
+│   ├── home.html
+│   └── tasks.html
+├── app.py
+├── README.md
+└── requirements.txt

@@ -1,40 +1,35 @@
 <!-- templates/edit_task.html -->
-
 {% extends 'base.html' %}
-
 {% block title %}Edit Task{% endblock %}
 
 {% block content %}
 <div class="card bg-dark">
-  <div class="card-header bg-primary text-white">
-    <h3>
-      <i class="bi bi-pencil-square me-1"></i> Edit Task
-    </h3>
+  <div class="card-header bg-info text-white">
+    <h3><i class="bi bi-pencil-square me-1"></i> Edit Task</h3>
   </div>
   <div class="card-body">
-    <!-- POST to /edit/<task_id> for updating -->
-    <form method="POST" action="{{ url_for('edit_task', task_id=task._id) }}" id="editTaskForm">
+    <form method="POST" action="{{ url_for('edit_task', task_id=task._id) }}">
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <input
-          type="text"
+        <input 
+          type="text" 
           class="form-control"
           id="description"
           name="description"
-          placeholder="Task description"
           value="{{ task.description }}"
           required
-        >
+        />
       </div>
 
-      <!-- Status (Pending/Completed). You can add more if you want -->
       <div class="mb-3">
-        <label for="status" class="form-label">Status</label>
-        <select class="form-select" id="status" name="status">
-          <option value="Pending" {% if task.status == 'Pending' %}selected{% endif %}>Pending</option>
-          <option value="Completed" {% if task.status == 'Completed' %}selected{% endif %}>Completed</option>
-          <!-- Add more statuses if your app requires them -->
-        </select>
+        <label for="due_date" class="form-label">Due Date (YYYY-MM-DD)</label>
+        <input 
+          type="date" 
+          class="form-control"
+          id="due_date"
+          name="due_date"
+          value="{{ task.due_date if task.due_date else '' }}"
+        />
       </div>
 
       <div class="mb-3">
@@ -43,25 +38,38 @@
           <option value="High" {% if task.priority == 'High' %}selected{% endif %}>High</option>
           <option value="Medium" {% if task.priority == 'Medium' %}selected{% endif %}>Medium</option>
           <option value="Low" {% if task.priority == 'Low' %}selected{% endif %}>Low</option>
-          <!-- Or blank/no priority if your app logic allows it -->
+          <option value="" {% if not task.priority %}selected{% endif %}>-- None --</option>
         </select>
       </div>
 
       <div class="mb-3">
-        <label for="due_date" class="form-label">Due Date (YYYY-MM-DD)</label>
-        <input
-          type="date"
-          class="form-control"
-          id="due_date"
-          name="due_date"
-          value="{{ task.due_date if task.due_date else '' }}"
-        >
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" name="status">
+          <option value="Pending" {% if task.status == 'Pending' %}selected{% endif %}>Pending</option>
+          <option value="Completed" {% if task.status == 'Completed' %}selected{% endif %}>Completed</option>
+        </select>
+      </div>
+
+      {# Contacts are passed from app.py #}
+      <div class="mb-3">
+        <label for="assigned_contact" class="form-label">Assign To</label>
+        <select class="form-select" id="assigned_contact" name="assigned_contact">
+          <option value="">-- No Contact --</option>
+          {% for c in contacts %}
+            <option 
+              value="{{ c._id }}"
+              {% if task.assigned_contact_id == c._id %}selected{% endif %}
+            >
+              {{ c.name }}
+            </option>
+          {% endfor %}
+        </select>
       </div>
 
       <button type="submit" class="btn btn-info">
         <i class="bi bi-check-circle me-1"></i> Save Changes
       </button>
-      <a href="{{ url_for('index') }}" class="btn btn-secondary ms-2">
+      <a href="{{ url_for('tasks_index') }}" class="btn btn-secondary ms-2">
         <i class="bi bi-arrow-left"></i> Cancel
       </a>
     </form>

@@ -1,0 +1,86 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% block title %}Home - Vuluru To-Do{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 rounded-3 bg-transparent border border-info">
+  <div class="container py-5">
+    <h1 class="display-4 fw-bold text-info">
+      Welcome to Vuluru To-Do
+    </h1>
+    <p class="fs-5 text-light">
+      Your all-in-one solution for managing tasks and contacts—now with multiple themes, advanced validation, and a modern UI.
+    </p>
+    <hr class="my-4 text-info" />
+    <p class="text-light">
+      Whether you have a personal to-do list or a full-scale project with multiple contacts, Vuluru To-Do keeps everything organized. 
+      Tap or click on the tabs above to get started.
+    </p>
+    <a class="btn btn-info btn-lg me-2" href="{{ url_for('tasks_index') }}" role="button">
+      <i class="bi bi-check2-circle me-1"></i> Manage Tasks
+    </a>
+    <a class="btn btn-success btn-lg" href="{{ url_for('contacts_index') }}" role="button">
+      <i class="bi bi-person-badge me-1"></i> Manage Contacts
+    </a>
+  </div>
+</div>
+
+<!-- Feature Highlights Section -->
+<div class="row g-4">
+  <!-- Card 1: Multi-Theme -->
+  <div class="col-md-4">
+    <div class="card bg-transparent border border-secondary text-readable">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">
+          <i class="bi bi-palette me-1"></i> Multi-Theme Support
+        </h5>
+        <p class="card-text">
+          Instantly switch among Dark, Light, or High Contrast in the nav bar. 
+          Your preference persists thanks to local storage integration.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Card 2: Modern Validation -->
+  <div class="col-md-4">
+    <div class="card bg-transparent border border-secondary text-readable">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">
+          <i class="bi bi-shield-check me-1"></i> Modern Validation
+        </h5>
+        <p class="card-text">
+          Real-time form checks ensure tasks have valid descriptions and optional due dates, 
+          while contacts are always complete with name, email, or phone.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Card 3: Assign Contacts -->
+  <div class="col-md-4">
+    <div class="card bg-transparent border border-secondary text-readable">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">
+          <i class="bi bi-people me-1"></i> Assign Contacts
+        </h5>
+        <p class="card-text">
+          Easily link tasks to your existing contacts so you always know who is responsible. 
+          Great for team projects or personal accountability.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Access Links -->
+<div class="mt-5">
+  <h3 class="text-info mb-3">Quick Actions</h3>
+  <div class="d-flex flex-wrap gap-3">
+    <a href="{{ url_for('add_task') }}" class="btn btn-outline-info btn-lg">
+      <i class="bi bi-plus-circle me-1"></i> Add Task
+    </a>
+    <a href="{{ url_for('add_contact') }}" class="btn btn-outline-success btn-lg">
+      <i class="bi bi-person-plus me-1"></i> Add Contact
+    </a>
+  </div>
+</div>
+{% endblock %}
